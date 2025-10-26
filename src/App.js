@@ -13,10 +13,11 @@ class App {
 
     const raceCount = Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
 
-    for(let i = 0; i<raceCount; i++){
-      checkCarMovement();
+    for (let i = 0; i < raceCount; i++) {
+      this.checkCarMovement(carStates);
+      this.printCarStates(carStates);
+      Console.print(""); // 줄바꿈
     }
-
     
   }
 
@@ -46,12 +47,18 @@ class App {
   };
 
   // 자동차 전진 여부 판단
-  checkCarMovement(){
+  checkCarMovement(carStates){
     randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
     if(randomNumber>=4){
-      moveCar();
+      this.moveCar(carStates,name);
     }
   }
+
+  // 전진 함수 추가
+  moveCar(carStates){
+    carStates[name] += 1;
+  }
+  
 }
 
 export default App;
