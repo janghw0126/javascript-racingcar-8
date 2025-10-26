@@ -51,7 +51,7 @@ class App {
   // 자동차 전진 여부 판단
   checkCarMovement(carStates){
     for (const name in carStates) {           // 각 자동차별 반복
-    randomNumber = Random.pickNumberInRange(0, 9);
+    let randomNumber = Random.pickNumberInRange(0, 9);
     if(randomNumber>=4){
       this.moveCar(carStates,name);
      }
