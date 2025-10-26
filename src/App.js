@@ -59,11 +59,11 @@ class App {
 
   // 시도 횟수 검증
   validateRaceCount(raceCount){
-    if(!Number(raceCount)){
-      throw new Error("[ERROR] 숫자가 아닌 문자를 입력받았습니다.");
-    }
     if(raceCount===""){
       throw new Error("[ERROR] 시도 횟수가 비어있습니다.");
+    }
+    if(!Number(raceCount)){
+      throw new Error("[ERROR] 숫자가 아닌 문자를 입력받았습니다.");
     }
     if(Number(raceCount)<0){
       throw new Error("[ERROR] 0이하의 숫자를 입력하였습니다.");
