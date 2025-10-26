@@ -14,7 +14,8 @@ class App {
     });
 
     const raceCount = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
-
+    Console.print(""); // 줄바꿈
+    
     // 시도할 횟수만큼 반복하면서 경주 게임 실행
     for (let i = 0; i < raceCount; i++) {
       this.checkCarMovement(carStates);
