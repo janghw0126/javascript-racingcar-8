@@ -11,7 +11,7 @@ class App {
       carStates[name] = 0;
     });
 
-    const raceCount = Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
+    const raceCount = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
 
     for (let i = 0; i < raceCount; i++) {
       this.checkCarMovement(carStates);
@@ -59,7 +59,7 @@ class App {
     carStates[name] += 1;
   }
 
-  // 차 진행상황 출력함수 추가
+  // 차 진행상황 출력 함수 추가
   printCarStates(carStates) {
     for (const [name, position] of Object.entries(carStates)) {
       Console.print(`${name} : ${'-'.repeat(position)}`);
