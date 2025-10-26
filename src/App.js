@@ -3,9 +3,11 @@ import {Console,Random} from "@woowacourse/mission-utils"
 class App {
   async run() {
     const input = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+
+    // 자동차 이름 검증 함수 실행 및 이름 추출
     const carNames = this.validateCarName(input);
 
-    // 자동차 이동 상태 배열
+    // 자동차 이동 상태 객체 선언
     let carStates = {};
     carNames.forEach((name) => {
       carStates[name] = 0;
@@ -13,6 +15,7 @@ class App {
 
     const raceCount = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
 
+    // 시도할 횟수만큼 반복하면서 경주 게임 실행
     for (let i = 0; i < raceCount; i++) {
       this.checkCarMovement(carStates);
       this.printCarStates(carStates);
@@ -50,12 +53,13 @@ class App {
 
   // 자동차 전진 여부 판단
   checkCarMovement(carStates){
-    for (const name in carStates) {           // 각 자동차별 반복
-    let randomNumber = Random.pickNumberInRange(0, 9);
-    if(randomNumber>=4){
-      this.moveCar(carStates,name);
-     }
-   }
+    for (const name in carStates){
+      let randomNumber = Random.pickNumberInRange(0, 9);
+      if(randomNumber>=4){
+        this.moveCar(carStates,name);
+      }
+    }
+    this.printCarStates(carStates);
   }
 
   // 전진 함수 추가
