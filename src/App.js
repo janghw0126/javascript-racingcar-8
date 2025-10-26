@@ -33,17 +33,19 @@ class App {
   // 자동차 이름 검증 함수
   validateCarName(input){
     // 자동차 이름 검증
-    if(input.length ===1){
-      throw new Error("[ERROR] 자동차가 하나만 입력되었습니다.");
+    if(/\s/.test(input)){
+      throw new Error("[ERROR] 입력값 사이에 공백이 있습니다.");
     }
-    if(!input.includes(",")){
-      throw new Error("[ERROR] 쉼표 구분자가 아닌 다른 구분자를 사용하였습니다.(쉼표 구분자가 누락되었습니다.)");
+
+    if(/[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9,]/.test(input)){
+      throw new Error("[ERROR] 쉼표(,) 이외의 다른 구분 기호를 사용하였습니다.");
     }
-      if(/[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9,]/.test(input)){
-        throw new Error("[ERROR] 중간에 쉼표(,) 이외의 다른 구분 기호를 사용하였습니다.");
-      }
     // 자동차 이름 분리
     let carNames = input.split(",");
+
+    if(carNames.length===1){
+      throw new Error("[ERROR] 자동차가 하나만 입력되었습니다.");
+    }
 
     for(let i = 0;i<carNames.length;i++){
       if(carNames[i].length>5){
