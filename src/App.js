@@ -13,6 +13,7 @@ class App {
       carStates[name] = 0;
     });
 
+    // 시도 횟수 입력
     const raceCount = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
     this.validateRaceCount(raceCount);
 
@@ -36,11 +37,11 @@ class App {
       throw new Error("[ERROR] 자동차가 하나만 입력되었습니다.");
     }
     if(!input.includes(",")){
-      throw new Error("[ERROR] 쉼표 구분자가 아닌 다른 구분자를 사용하였습니다.");
+      throw new Error("[ERROR] 쉼표 구분자가 아닌 다른 구분자를 사용하였습니다.(쉼표 구분자가 누락되었습니다.)");
     }
-    if(/[^가-힣a-zA-Z0-9,]/.test(input)){
-      throw new Error("[ERROR] 중간에 쉼표(,) 이외의 다른 구분 기호를 사용하였습니다.");
-    }
+      if(/[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9,]/.test(input)){
+        throw new Error("[ERROR] 중간에 쉼표(,) 이외의 다른 구분 기호를 사용하였습니다.");
+      }
     // 자동차 이름 분리
     let carNames = input.split(",");
 
