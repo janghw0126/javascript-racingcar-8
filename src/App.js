@@ -19,7 +19,7 @@ class App {
       Console.print(""); // 줄바꿈
     }
 
-    Console.print("최종 우승자 : ", determineWinner(carStates));
+    Console.print(`최종 우승자 : ${this.determineWinner(carStates)}`);
     
   }
 
@@ -76,7 +76,7 @@ class App {
     const winner = Object.keys(carStates).filter(
       (name) => carStates[name] === maxPosition);
     return winner;
-    }
+    };
 }
 
 export default App;
