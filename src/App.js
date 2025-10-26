@@ -14,17 +14,19 @@ class App {
     });
 
     const raceCount = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
-    Console.print(""); // 줄바꿈
+    this.validateRaceCount(raceCount);
+
+    Console.print("");
     Console.print("실행 결과");
+
     // 시도할 횟수만큼 반복하면서 경주 게임 실행
     for (let i = 0; i < raceCount; i++) {
       this.checkCarMovement(carStates);
       this.printCarStates(carStates);
-      Console.print(""); // 줄바꿈
+      Console.print("");
     }
 
     Console.print(`최종 우승자 : ${this.determineWinner(carStates)}`);
-    
   }
 
   // 자동차 이름 검증 함수
@@ -51,6 +53,20 @@ class App {
     }
     return carNames;
   };
+
+  // 시도 횟수 검증
+  validateRaceCount(raceCount){
+    if(!Number(raceCount)){
+      throw new Error("[ERROR] 숫자가 아닌 문자를 입력받았습니다.");
+    }
+    if(raceCount===""){
+      throw new Error("[ERROR] 시도 횟수가 비어있습니다.");
+    }
+    if(Number(raceCount)<0){
+      throw new Error("[ERROR] 0이하의 숫자를 입력하였습니다.");
+    }
+  }
+  
 
   // 자동차 전진 여부 판단
   checkCarMovement(carStates){
