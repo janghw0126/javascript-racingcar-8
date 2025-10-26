@@ -58,6 +58,13 @@ class App {
   moveCar(carStates){
     carStates[name] += 1;
   }
+
+  // 차 진행상황 출력함수 추가
+  printCarStates(carStates) {
+    for (const [name, position] of Object.entries(carStates)) {
+      Console.print(`${name} : ${'-'.repeat(position)}`);
+    }
+  }
   
 }
 
