@@ -48,14 +48,16 @@ class App {
 
   // 자동차 전진 여부 판단
   checkCarMovement(carStates){
+    for (const name in carStates) {           // 각 자동차별 반복
     randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
     if(randomNumber>=4){
       this.moveCar(carStates,name);
-    }
+     }
+   }
   }
 
   // 전진 함수 추가
-  moveCar(carStates){
+  moveCar(carStates,name){
     carStates[name] += 1;
   }
 
