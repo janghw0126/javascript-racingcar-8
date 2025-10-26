@@ -2,7 +2,22 @@ import {Console} from "@woowacourse/mission-utils"
 
 class App {
   async run() {
-    const input = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n")
+    const input = await Console.readLineAsync("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
+    const carNames = this.validateCarName(input);
+
+    // 자동차 이동 상태 배열
+    let carStates = {};
+    carNames.forEach((name) => {
+      carStates[name] = 0;
+    });
+
+    const raceCount = Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
+
+    for(let i = 0; i<raceCount; i++){
+      checkCarMovement();
+    }
+
+    
   }
 
   // 자동차 이름 검증 함수
@@ -29,6 +44,14 @@ class App {
     }
     return carNames;
   };
+
+  // 자동차 전진 여부 판단
+  checkCarMovement(){
+    randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
+    if(randomNumber>=4){
+      moveCar();
+    }
+  }
 }
 
 export default App;
