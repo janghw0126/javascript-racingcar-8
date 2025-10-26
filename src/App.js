@@ -7,11 +7,27 @@ class App {
 
   // 자동차 이름 검증 함수
   validateCarName(input){
-     // 자동차 이름 분리
+    // 자동차 이름 검증
+    if(/[^가-힣a-zA-Z0-9,]/.test(input)){
+      throw new Error("[ERROR] 쉼표 이외의 다른 구분 기호를 사용하였습니다.");
+    }
+    if(!input.includes(",")){
+      throw new Error("[ERROR] 쉼표 구분자가 누락되었습니다.");
+    }
+    
+    // 자동차 이름 분리
     let carNames = input.split(",");
 
-    return carNames;
+    for(let i = 0;i<carNames.length;i++){
+      if(carNames[i].length>5){
+        throw new Error("[ERROR] 자동차의 이름이 5자 초과입니다.");
+      }
 
+      if(carNames[i]===""){
+        throw new Error("[ERROR] 자동차의 이름이 비어있습니다.");
+      }
+    }
+    return carNames;
   };
 }
 
