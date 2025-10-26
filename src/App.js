@@ -69,9 +69,10 @@ class App {
 
   // 차 진행상황 출력 함수 추가
   printCarStates(carStates) {
-    for (const [name, position] of Object.entries(carStates)) {
-      Console.print(`${name} : ${'-'.repeat(position)}`);
-    }
+    Console.print("실행 결과");
+    Object.entries(carStates).forEach(([name,position]) => {
+      Console.print(`${name} : ${"-".repeat(position)}`);
+    });
   }
 
   // 우승자 판단 함수 추가
