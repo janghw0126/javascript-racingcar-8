@@ -59,7 +59,6 @@ class App {
         this.moveCar(carStates,name);
       }
     }
-    this.printCarStates(carStates);
   }
 
   // 전진 함수 추가
