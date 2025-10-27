@@ -27,7 +27,7 @@ class App {
       Console.print("");
     }
 
-    Console.print(`최종 우승자 : ${this.determineWinner(carStates)}`);
+    Console.print(`최종 우승자 : ${this.determineWinner(carStates).join(", ")}`);
   }
 
   // 자동차 이름 검증 함수
