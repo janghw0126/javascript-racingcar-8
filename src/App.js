@@ -14,7 +14,7 @@ class App {
     });
 
     // 시도 횟수 입력
-    const raceCount = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
+    const raceCount = Number(await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n"));
     this.validateRaceCount(raceCount);
 
     Console.print("");
