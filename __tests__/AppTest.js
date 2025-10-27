@@ -43,3 +43,28 @@ describe("자동차 이름 검증 테스트", () =>{
     expect(()=> app.validateCarName(input).toThrow(expectedMessage));
   });
 })
+
+describe("시도 횟수 검증 테스트",()=>{
+  const app = new App();
+
+  test.each([
+    [
+      "시도 횟수 입력이 비어있을 경우",
+      "",
+      "[ERROR] 시도 횟수가 비어있습니다.",
+    ],
+    [
+      "숫자가 아닌 문자를 입력받을 경우",
+      "three",
+      "[ERROR] 숫자가 아닌 문자를 입력받았습니다.",
+    ],
+    [
+      "0 이하의 숫자를 입력했을 경우",
+      "0",
+      "[ERROR] 0 이하의 숫자를 입력하였습니다.",
+    ],
+  ])("%s 예외 발생",(_,input,expectedMessage)=>{
+     expect(()=> app.validateRaceCount(input).toThrow(expectedMessage));
+  });
+
+})
