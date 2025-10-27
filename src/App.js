@@ -30,19 +30,15 @@ class App {
     Console.print(`최종 우승자 : ${this.determineWinner(carStates).join(", ")}`);
   }
 
-  // 자동차 이름 검증
   validateCarName(input){
     if(/\s/.test(input)){
       throw new Error("[ERROR] 입력값 사이에 공백이 있습니다.");
     }
-
     if(/[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9,]/.test(input)){
       throw new Error("[ERROR] 쉼표(,) 이외의 다른 구분 기호를 사용하였습니다.");
     }
-
-    // 자동차 이름 분리
+    
     let carNames = input.split(",");
-
     if(carNames.length===1){
       throw new Error("[ERROR] 자동차가 하나만 입력되었습니다.");
     }
@@ -50,12 +46,11 @@ class App {
     for(const name of carNames){
       if (name === "") throw new Error("[ERROR] 자동차의 이름이 비어있습니다.");
       if (name.length > 5) throw new Error("[ERROR] 자동차의 이름이 5자 초과입니다.");
-    };
+    }
     
     return carNames;
-  };
+  }
 
-  // 시도 횟수 검증
   validateRaceCount(raceCount){
     if(raceCount===""){
       throw new Error("[ERROR] 시도 횟수가 비어있습니다.");
@@ -68,7 +63,6 @@ class App {
     }
   }
 
-  // 자동차 전진 여부 판단
   checkCarMovement(carStates){
     for (const name in carStates){
       let randomNumber = Random.pickNumberInRange(0, 9);
@@ -78,19 +72,16 @@ class App {
     }
   }
 
-  // 자동차 한 칸 전진
   moveCar(carStates,name){
     carStates[name] += 1;
   }
 
-  // 현재 라운드별 자동차 이동상태 출력
   printCarStates(carStates) {
     Object.entries(carStates).forEach(([name,position]) => {
       Console.print(`${name} : ${"-".repeat(position)}`);
     });
   }
 
-  // 우승자 판단
   determineWinner(carStates){
     const maxPosition = Math.max(...Object.values(carStates));
     const winner = Object.keys(carStates).filter(
