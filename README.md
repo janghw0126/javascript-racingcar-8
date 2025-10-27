@@ -58,8 +58,8 @@ jun : -----
 - [x] 함수나 메서드가 한 가지 일만 하도록 최대한 작게 만든다.
 - [x] Jest를 이용하여 기능 테스트를 수행한다.
 - [x] @woowacourse/mission-utils에서 제공하는 Random 및 Console API를 사용하여 구현한다,
-    - [ ] Random.pickNumberInRange()
-    - [ ] Console.readLineAsync(), Console.print()
+    - [x] Random.pickNumberInRange()
+    - [x] Console.readLineAsync(), Console.print()
 
 ## 기능 구현 목록
 
