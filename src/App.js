@@ -32,7 +32,6 @@ class App {
 
   // 자동차 이름 검증 함수
   validateCarName(input){
-    // 자동차 이름 검증
     if(/\s/.test(input)){
       throw new Error("[ERROR] 입력값 사이에 공백이 있습니다.");
     }
@@ -40,6 +39,7 @@ class App {
     if(/[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9,]/.test(input)){
       throw new Error("[ERROR] 쉼표(,) 이외의 다른 구분 기호를 사용하였습니다.");
     }
+
     // 자동차 이름 분리
     let carNames = input.split(",");
 
@@ -60,7 +60,7 @@ class App {
     return carNames;
   };
 
-  // 시도 횟수 검증
+  // 시도 횟수 검증 함수
   validateRaceCount(raceCount){
     if(raceCount===""){
       throw new Error("[ERROR] 시도 횟수가 비어있습니다.");
@@ -74,7 +74,7 @@ class App {
   }
   
 
-  // 자동차 전진 여부 판단
+  // 자동차 전진 여부 판단 함수
   checkCarMovement(carStates){
     for (const name in carStates){
       let randomNumber = Random.pickNumberInRange(0, 9);
@@ -84,12 +84,12 @@ class App {
     }
   }
 
-  // 전진 함수 추가
+  // 전진 함수 추가 함수
   moveCar(carStates,name){
     carStates[name] += 1;
   }
 
-  // 차 진행상황 출력 함수 추가
+  // 차 진행상황 출력 함수 추가 함수
   printCarStates(carStates) {
     Object.entries(carStates).forEach(([name,position]) => {
       Console.print(`${name} : ${"-".repeat(position)}`);

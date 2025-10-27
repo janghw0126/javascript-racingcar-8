@@ -38,7 +38,7 @@ describe("자동차 이름 검증 테스트", () =>{
       "[ERROR] 자동차의 이름이 비어있습니다.",
     ],
   ])("%s 예외 발생",(_,input,expectedMessage) => {
-    expect(()=> app.validateCarName(input).toThrow(expectedMessage));
+    expect(()=> app.validateCarName(input)).toThrow(expectedMessage);
   });
 })
 
@@ -64,7 +64,7 @@ describe("시도 횟수 검증 테스트",()=>{
       "[ERROR] 0 이하의 숫자를 입력하였습니다.",
     ],
   ])("%s 예외 발생",(_,input,expectedMessage)=>{
-     expect(()=> app.validateRaceCount(input).toThrow(expectedMessage));
+     expect(()=> app.validateRaceCount(input)).toThrow(expectedMessage);
   });
 
 })
