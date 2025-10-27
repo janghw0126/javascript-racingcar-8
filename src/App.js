@@ -47,15 +47,10 @@ class App {
       throw new Error("[ERROR] 자동차가 하나만 입력되었습니다.");
     }
 
-    carNames.forEach((name) => {
-      if (name === "") {
-        throw new Error("[ERROR] 자동차의 이름이 비어있습니다.");
-      }
-
-      if (name.length > 5) {
-        throw new Error("[ERROR] 자동차의 이름이 5자 초과입니다.");
-      }
-    });
+    for(const name of carNames){
+      if (name === "") throw new Error("[ERROR] 자동차의 이름이 비어있습니다.");
+      if (name.length > 5) throw new Error("[ERROR] 자동차의 이름이 5자 초과입니다.");
+    };
     
     return carNames;
   };
