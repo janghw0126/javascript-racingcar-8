@@ -1,9 +1,6 @@
 import App from "../src/App";
 
-// 전역 상수
-const MOVING_FORWARD = 4;
-const STOP = 3;
-
+// 자동차 이름 검증 테스트 추가
 describe("자동차 이름 검증 테스트", () =>{
   const app = new App();
 
@@ -13,6 +10,7 @@ describe("자동차 이름 검증 테스트", () =>{
     expect(result).toEqual(["pobi","woni","jun"]);
   });
 
+  // 예외 케이스
   test.each([
     [
       "자동차 이름 사이에 공백이 포함된 경우",
@@ -44,9 +42,11 @@ describe("자동차 이름 검증 테스트", () =>{
   });
 })
 
+// 시도 횟수 검증 테스트 추가
 describe("시도 횟수 검증 테스트",()=>{
   const app = new App();
 
+  // 예외 테스트
   test.each([
     [
       "시도 횟수 입력이 비어있을 경우",
